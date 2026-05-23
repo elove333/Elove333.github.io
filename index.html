@@ -69,9 +69,7 @@ hosted_fallback should continue play.
       </textarea>
       <div class="actions">
         <button id="copyButton" type="button">Copy setup message</button>
-        <a href="https://sopo.example/practice-arena" target="_blank" rel="noopener noreferrer"
-          >Test in Practice Arena</a
-        >
+        <button id="practiceButton" type="button">Test in Practice Arena</button>
       </div>
       <p id="status" aria-live="polite">Ready to paste into your AI.</p>
       <p>
@@ -82,6 +80,7 @@ hosted_fallback should continue play.
     <script>
       const setupMessage = document.getElementById("setupMessage");
       const copyButton = document.getElementById("copyButton");
+      const practiceButton = document.getElementById("practiceButton");
       const status = document.getElementById("status");
 
       copyButton.addEventListener("click", async () => {
@@ -93,6 +92,10 @@ hosted_fallback should continue play.
           setupMessage.select();
           status.textContent = "Copy failed. The message is selected—press Ctrl/Cmd+C to copy.";
         }
+      });
+
+      practiceButton.addEventListener("click", () => {
+        status.textContent = "Open SOPO Practice Arena in your SOPO session and run test hands.";
       });
     </script>
   </body>
