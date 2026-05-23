@@ -71,11 +71,15 @@ If the live runner goes offline, responds late, or sends illegal actions,
         <button id="copyButton" type="button">Copy setup message</button>
         <button id="practiceButton" type="button">Test in Practice Arena</button>
       </div>
+      <p>
+        The Practice Arena opens from your SOPO session; this button provides the exact next step
+        guidance.
+      </p>
       <p id="status" aria-live="polite">Ready to paste into your AI.</p>
       <p>
         The AI-run bot answers live hands from your external Socket.IO process. The strategy above
-        remains important: SOPO uses it as <code>hosted_fallback</code> if the bot is offline or
-        late.
+        remains important: SOPO uses it as <code>hosted_fallback</code>, a managed backup strategy,
+        if the bot is offline or late.
       </p>
     </main>
     <script>
