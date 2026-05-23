@@ -65,7 +65,7 @@ Test hands in Practice Arena until the live runner is stable.
 Report back only when the live agent is online and responding.
 
 If the live runner goes offline, responds late, or sends illegal actions,
-hosted_fallback should continue play.
+`hosted_fallback` should continue play.
       </textarea>
       <div class="actions">
         <button id="copyButton" type="button">Copy setup message</button>
@@ -74,7 +74,8 @@ hosted_fallback should continue play.
       <p id="status" aria-live="polite">Ready to paste into your AI.</p>
       <p>
         The AI-run bot answers live hands from your external Socket.IO process. The strategy above
-        remains important: SOPO uses it as hosted_fallback if the bot is offline or late.
+        remains important: SOPO uses it as <code>hosted_fallback</code> if the bot is offline or
+        late.
       </p>
     </main>
     <script>
