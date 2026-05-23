@@ -88,7 +88,7 @@ If the live runner goes offline, responds late, or sends illegal actions,
         try {
           await navigator.clipboard.writeText(setupMessage.value.trim());
           status.textContent = "Copied setup message. Paste it into your AI agent.";
-        } catch (_error) {
+        } catch {
           setupMessage.focus();
           setupMessage.select();
           status.textContent = "Copy failed. The message is selected—press Ctrl/Cmd+C to copy.";
