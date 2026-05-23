@@ -75,7 +75,7 @@ If the live runner goes offline, responds late, or sends illegal actions,
         The Practice Arena opens from your SOPO session; this button provides the exact next step
         guidance.
       </p>
-      <p id="status" aria-live="assertive">Ready to paste into your AI.</p>
+      <p id="status" aria-live="polite">Ready to paste into your AI.</p>
       <p>
         The AI-run bot answers live hands from your external Socket.IO process. The strategy above
         remains important: SOPO uses it as <code>hosted_fallback</code>, a managed backup strategy,
@@ -89,6 +89,13 @@ If the live runner goes offline, responds late, or sends illegal actions,
       const status = document.getElementById("status");
 
       copyButton.addEventListener("click", async () => {
+        if (!navigator.clipboard || !navigator.clipboard.writeText) {
+          setupMessage.focus();
+          setupMessage.select();
+          status.textContent = "Clipboard access unavailable. Press Ctrl/Cmd+C to copy manually.";
+          return;
+        }
+
         try {
           await navigator.clipboard.writeText(setupMessage.value.trim());
           status.textContent = "Copied setup message. Paste it into your AI agent.";
